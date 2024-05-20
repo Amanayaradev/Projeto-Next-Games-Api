@@ -1,10 +1,11 @@
 import DataProps from "@/utils/gameProps"
 import Image from "next/image"
+import Link from "next/link"
 
 //https://sujeitoprogramador.com/next-api/?api=games *allgames
 //https://sujeitoprogramador.com/next-api/?api=game&title=the *somegames
 
-export async function DataCards() {
+async function DataCards() {
   try {
     let apiUrl = `${process.env.NEXT_API_URL}/next-api/?api=games`
     const response = await fetch(apiUrl)
@@ -28,6 +29,7 @@ export async function AllCards() {
       {dataGames &&
         dataGames.map((game) => (
           <div key={game.id} className="self-center flex w-64">
+            <Link href={`/datails/${game.id}`}>
             <div className="bg-rose-200 px-3 py-10 w-60 h-60 gap-5 m-4 rounded-md">
               <Image
               className=""
@@ -38,6 +40,7 @@ export async function AllCards() {
               />
               <p className="text-center">{game.title}</p>
             </div>
+            </Link>
           </div>
         ))
       }

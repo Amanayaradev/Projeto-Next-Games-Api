@@ -5,6 +5,7 @@ import Image from "next/image"
 
 //https://sujeitoprogramador.com/next-api/?api=games *allgames
 //https://sujeitoprogramador.com/next-api/?api=game&title=the *somegames
+// https://sujeitoprogramador.com/next-api/?api=game&id=1 *gameId
 
 async function getData(title: string) {
   try {
